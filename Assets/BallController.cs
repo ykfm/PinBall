@@ -22,6 +22,8 @@ public class BallController : MonoBehaviour
 
         this.scoreText = GameObject.Find("Score");
 
+        this.scoreText.GetComponent<Text>().text = "Score:" + morescore;
+
     }
 
     // Update is called once per frame
@@ -32,7 +34,7 @@ public class BallController : MonoBehaviour
             this.gameoverText.GetComponent<Text>().text = "Game Over";
         }
 
-        this.scoreText.GetComponent<Text>().text = "Score:" + morescore;
+        
     }
 
     private void OnCollisionEnter(Collision other)
@@ -40,14 +42,17 @@ public class BallController : MonoBehaviour
         if (other.gameObject.tag == "LargeStarTag")
         {
             morescore += 10;
+            this.scoreText.GetComponent<Text>().text = "Score:" + morescore;
         }
         else if (other.gameObject.tag == "SmallCloudTag")
         {
             morescore += 20;
+            this.scoreText.GetComponent<Text>().text = "Score:" + morescore;
         }
         else if (other.gameObject.tag == "LargeCloudTag")
         {
             morescore += 40;
+            this.scoreText.GetComponent<Text>().text = "Score:" + morescore;
         }
     }
 
