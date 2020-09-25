@@ -41,6 +41,21 @@ public class FripperController : MonoBehaviour
         {
             SetAngle(this.defaultAngle);
         }
+
+        if (Input.GetMouseButton(0) && Input.mousePosition.x >= Screen.width / 2 && tag == "RightFripperTag")
+        {
+            SetAngle(this.flickAngle);
+        }
+
+        if (Input.GetMouseButton(0) && Input.mousePosition.x <= Screen.width / 2 && tag == "LeftFripperTag")
+        {
+            SetAngle(this.flickAngle);
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            SetAngle(this.defaultAngle);
+        }
     }
 
         public void SetAngle(float angle)
